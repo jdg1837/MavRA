@@ -1,3 +1,4 @@
 MavRA-CLI/.vscode/settings.json
 MavRA-CLI/*.txt
-MavRA-CLI/*.class
+*.class
+MavRA-CLI/classes/Resident.class
