@@ -3,30 +3,21 @@ import java.util.ArrayList;
 
 public class Resident extends Person
 {
-	private int room;
-	private int side;
-	private int sort_id;
+	private String room;
 	private ArrayList<String> info;
 	private ArrayList<String> concerns;
 
-    public Resident(String name_in, String major_in, int age_in, int gender_in, int room_in, char side_in)
+    public Resident(String name_in, String major_in, int age_in, int gender_in, String room_in)
     { 
         super(name_in, major_in, age_in, gender_in); 
         room = room_in;
-		side = side_in;
-		sort_id = room + side;
 		info = new ArrayList<String>();
 		concerns = new ArrayList<String>();
     } 
 
 	public String return_room()
 	{
-		return String.format("%d%c", room, side);
-	}
-
-	public int return_id()
-	{
-		return sort_id;
+		return room;
 	}
 
 	public ArrayList<String> return_info()
