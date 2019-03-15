@@ -1,20 +1,21 @@
-import classes;
+import classes.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Main{
 public static void main(String [] args)
 {
 	Scanner in = new Scanner(System.in);
 	Person RA = new Person("test", "CS", 21, 0);
-	Sort sort = new Sort();
 	ArrayList<Resident> residents = new ArrayList<Resident>();
 
 	while(true)
 	{
-		System.out.println("Please select your option: ");
+		System.out.print("\n0: exit\n1: Enter RA Info\n2: Add new Resident\n3: List Residents\n\nPlease select your option: ");
 		int option = in.nextInt();
-		
+
 		if(option == -1)
 		{
 			System.out.printf("RA information:\n\tName: %s\n\tGender: %s\n\tAge: %s\n\tMajor: %s\n", RA.return_name(), RA.return_gender(), RA.return_age(), RA.return_major());
@@ -29,7 +30,7 @@ public static void main(String [] args)
 			in.nextLine();
 
 			System.out.printf("Name: ");
-			String name_in = in.next();
+			String name_in = in.nextLine();
 
 			int gender_in = 0;
 			boolean gender_good = false;
@@ -62,22 +63,11 @@ public static void main(String [] args)
 			else if(option == 2)
 			{
 				System.out.printf("Room number: ");
-				int room_in = in.nextInt();
+				String room_in = in.next();
 
-				char side_in = 'A';
-
-				while(true)
-				{
-					System.out.printf("Side(A, B, C): ");
-					side_in = in.next().charAt(0);
-					
-					if(side_in == 'A' || side_in == 'B' || side_in == 'C')
-						break;
-				}
-
-				Resident res = new Resident(name_in, major_in, age_in, gender_in, room_in, side_in);
+				Resident res = new Resident(name_in, major_in, age_in, gender_in, room_in);
 				residents.add(res);
-				residents = sort.sort_res(residents);
+				Collections.sort(residents, (res1, res2) -> res1.return_room().compareTo(res2.return_room()));
 			}
 		}
 
