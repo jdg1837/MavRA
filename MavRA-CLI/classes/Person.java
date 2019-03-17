@@ -9,28 +9,50 @@ public class Person
 	private int age;
 	private int gender;
 
-	public Person(String name_in, String major_in, int age_in, int gender_in)
+	public Person(String name_in, String major_in, int gender_in)
 	{
 		name = name_in;
 		major = major_in;
-		age = age_in;
 		gender = gender_in;
 	}
 
-	public String return_name()
+	public String getName() 
 	{
 		return name;
 	}
-	public String return_major()
+
+	public void setName(String name) 
+	{
+		this.name = name;
+	}
+
+	public String getMajor() 
 	{
 		return major;
 	}
-	public String return_age()
+
+	public void setMajor(String major) 
 	{
-		return Integer.toString(age);
+		this.major = major;
 	}
-	public String return_gender()
+
+	public int getAge() 
+	{
+		return age;
+	}
+
+	public void setAge(int age) 
+	{
+		this.age = age;
+	}
+
+	public String getGender() 
 	{
 		return Gender[gender];
 	}
-} 
+
+	public void setGender(int gender) 
+	{
+		this.gender = gender;
+	}
+}

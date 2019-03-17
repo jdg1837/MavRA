@@ -7,25 +7,25 @@ public class Resident extends Person
 	private ArrayList<String> info;
 	private ArrayList<String> concerns;
 
-    public Resident(String name_in, String major_in, int age_in, int gender_in, String room_in)
+    public Resident(String name_in, String major_in, int gender_in, String room_in)
     { 
-        super(name_in, major_in, age_in, gender_in); 
+        super(name_in, major_in, gender_in); 
         room = room_in;
 		info = new ArrayList<String>();
 		concerns = new ArrayList<String>();
     } 
 
-	public String return_room()
+	public String getRoom()
 	{
 		return room;
 	}
 
-	public ArrayList<String> return_info()
+	public ArrayList<String> getInfo()
 	{
 		return info;
 	}
 
-	public ArrayList<String> return_concerns()
+	public ArrayList<String> getConcerns()
 	{
 		return concerns;
 	}
