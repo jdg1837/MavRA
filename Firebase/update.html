@@ -1,0 +1,33 @@
+<!-- Juan Diego Gonzalez German
+ID: 1001401837 -->
+
+<html>
+    <head>
+        <title>Update Faculty Member</title>
+        <link rel="stylesheet" href="styles.css">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="add-remove.html">Add/Remove Student</a></li>
+            <li><a href="update.html">Update information</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </head>
+    <body>
+        <h1> Update Faculty Type </h1>
+        <form method="post" action="update_faculty.php">
+            <fieldset>
+                <legend> Update Resident </legend>
+
+                <label id="label" for="id"> Faculty ID </label> </br>
+                <input type="text" name="id" maxlength="6" placeholder=" Enter id (six characters)" >
+                </br>
+
+                <input type="radio" name="type" value="Adjunct" checked> Adjunct<br>
+                <input type="radio" name="type" value="NTT"> NTT<br>
+                <input type="radio" name="type" value="TT"> TT<br>
+
+                <input id="button" type="submit" name="submit">
+            </fieldset>
+        </form>
+    </body>
+</html>

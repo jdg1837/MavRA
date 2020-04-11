@@ -1,0 +1,69 @@
+<!-- Juan Diego Gonzalez German
+ID: 1001401837 -->
+
+<html>
+    <head>
+        <title>Add or Remove Student</title>
+        <link rel="stylesheet" href="styles.css">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="add-remove.html">Add/Remove Student</a></li>
+            <li><a href="update.html">Update information</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </head>
+    <body>
+        <h1> Add a Student </h1>
+        <h4>Only <i>Self-Support Students</i> are supported in this release </h4>
+        <form method="post" action="add_student.php">
+            <fieldset>
+                <legend> Create Student </legend>
+
+                <label id="label" for="fname"> First Name </label> </br>
+                <input type="text" name="fname" placeholder=" Enter student's first name" >
+                </br>
+
+                <label id="label" for="lname"> Last Name </label> </br>
+                <input type="text" name="lname" placeholder=" Enter student's last name" >
+                </br>
+
+                <label id="label" for="id"> Student ID </label> </br>
+                <input type="text" name="id" maxlength="6" placeholder=" Enter id (six characters)" >
+                </br>
+
+                <label id="label" for="StSemester"> Start Semester </label> </br>
+                <select name="StSemester" size="3">
+                <option value="Fall">Fall</option>
+                <option value="Spring">Spring</option>
+                <option value="Summer">Summer</option>
+                </select>
+                </br>
+
+                <label id="label" for="StYear"> Start Year </label> </br>
+                <input type="text" name="StYear" maxlength="4" placeholder=" 2000" >
+                </br>
+
+                <label id="label" for="supervisor"> Supervisor ID </label> </br>
+                <input type="text" name="supervisor" maxlength="6" placeholder=" Enter id (six characters)" >
+                </br>
+
+                <input id="button" type="submit" name="submit">
+                
+            </fieldset>
+        </form>
+
+        <h1> Remove a Student </h1>
+        <h4> Student <i>must</i> be of self-support type</h4>
+        <form method="post" action="remove_student.php">
+            <fieldset>
+                <legend> Remove Student </legend>
+
+                <label id="label" for="id"> Student ID </label> </br>
+                <input type="text" name="id" maxlength="6" placeholder=" Enter id (six characters)" >
+                </br>
+
+                <input id="button" type="submit" name="submit">
+            </fieldset>
+        </form>
+    </body>
+</html>

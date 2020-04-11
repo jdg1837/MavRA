@@ -1,0 +1,37 @@
+/* Juan Diego Gonzalez German
+ID: 1001401837 */
+
+body {
+    background-color: whitesmoke;
+  }
+  h1 {
+    color: f58025;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0064b1;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 16px 20px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #f58025;
+  }
+
+  select{
+    overflow-y: auto;
+  }
