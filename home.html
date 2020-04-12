@@ -3,36 +3,96 @@ ID: 1001401837 -->
 
 <html>
     <head>
-        <title> Resident Database </title>
         <link rel="stylesheet" href="styles.css">
+        <script src = "./main.js"></script>
         <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="add-remove.html">Add/Remove Student</a></li>
-            <li><a href="update.html">Update information</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
     </head>
     <body>
-        <h1>Search for Student</h1>
-        <h4>You may search by either <i>First and Last Name</i> or by <i> Student ID</i></h4>
-        <form method="post" action="student_search.php">
+        <h1> Add a Resident </h1>
+        <form id="add" method="post" action="javascript:add()">
             <fieldset>
-                <legend> Find Student </legend>
-                
-                <label id="label" for="fname"> First Name </label> </br>
-                <input type="text" name="fname" placeholder=" Enter first name" >
+                <legend> Create Resident </legend>
+
+                <label> Resident ID </label> </br>
+                <input type="text" name="id" maxlength="10" placeholder="1001000000" >
                 </br>
 
-                <label id="label" for="lname"> Last Name </label> </br>
-                <input type="text" name="lname" placeholder=" Enter last name" >
+                <label> First Name </label> </br>
+                <input type="text" name="fname" placeholder="Enter Resident's first name" >
                 </br>
 
-                <label id="label" for="id"> Student ID </label> </br>
-                <input type="text" name="id" maxlength="6" placeholder=" Enter id (six characters)" >
+                <label> Last Name </label> </br>
+                <input type="text" name="lname" placeholder="Enter Resident's last name" >
                 </br>
 
-                <input id="button" type="submit" name="submit">
+                <label> Major </label> </br>
+                <input type="text" name="major" placeholder="Enter major" >
+                </br>
+
+                <label> Year </label> </br>
+                <select name="year" size="3">
+                <option value="Freshman">Freshman</option>
+                <option value="Sophomore">Sophomore</option>
+                <option value="Junior">Junior</option>
+                <option value="Senior">Senior</option>
+                <option value="Masters">Masters</option>
+                </select>
+                </br>
+
+                <label> Room Number </label> </br>
+                <input type="number" name="room_number" maxlength="3" placeholder="000" >
+                </br>
+
+                <label> Room Letter </label> </br>
+                <input type="text" name="room_letter" maxlength="1" placeholder="A" >
+                </br>
+
+                <input type="submit" name="submit">
+
             </fieldset>
         </form>
+
+
+        <h1> Remove a Resident </h1>
+        <form id="remove" method="post" action="javascript:del()">
+            <fieldset>
+                <legend> Remove Resident </legend>
+
+                <label> Resident ID </label> </br>
+                <input type="text" name="id" maxlength="10" placeholder="1001000000" >
+                </br>
+
+                <input type="submit" name="submit">
+            </fieldset>
+        </form>
+
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+        <!-- If you enabled Analytics in your project, add the Firebase SDKfor Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+        <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDZNTsyONAQlE0c_EtoCcyYyZyRWpz6isI",
+            authDomain: "mavra-2355b.firebaseapp.com",
+            databaseURL: "https://mavra-2355b.firebaseio.com",
+            projectId: "mavra-2355b",
+            storageBucket: "mavra-2355b.appspot.com",
+            messagingSenderId: "553724586959",
+            appId: "1:553724586959:web:ac19fbdcbafdd792a780ba",
+            measurementId: "G-QV8GKK0JD8"
+        };
+        // Initialize Firebase/Firestore
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore();
+        </script>
+
     </body>
 </html>
