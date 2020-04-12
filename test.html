@@ -4,11 +4,24 @@ ID: 1001401837 -->
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
-        <script type="text/javascript" src="test.js"></script>
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
     </head>
     <body>
+
+
+
         <h1> Add a Resident </h1>
-        <form method="post" onclick="add()">
+        <form method="post">
             <fieldset>
                 <legend> Create Resident </legend>
 
@@ -46,10 +59,11 @@ ID: 1001401837 -->
                 <input type="text" name="room_letter" maxlength="1" placeholder="A" >
                 </br>
 
-                <input id="button" type="submit" name="submit">
-                
+                <input id="button" type="submit" name="submit" onclick=test()>
+
             </fieldset>
         </form>
+
 
         <h1> Remove a Student </h1>
         <form method="post" onclick="del()">
@@ -64,5 +78,24 @@ ID: 1001401837 -->
             </fieldset>
         </form>
 
+        <script>
+        var firebaseConfig = {
+          apiKey: "AIzaSyDZNTsyONAQlE0c_EtoCcyYyZyRWpz6isI",
+          authDomain: "mavra-2355b.firebaseapp.com",
+          databaseURL: "https://mavra-2355b.firebaseio.com",
+          projectId: "mavra-2355b",
+          storageBucket: "mavra-2355b.appspot.com",
+          messagingSenderId: "553724586959",
+          appId: "1:553724586959:web:ac19fbdcbafdd792a780ba",
+          measurementId: "G-QV8GKK0JD8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore();
+        db.settings({ timestampsInSnapshots:true});
+        </script>
+
+
+        <script src = "./test.js"></script>
     </body>
 </html>
