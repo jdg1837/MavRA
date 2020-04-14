@@ -34,8 +34,6 @@ const UserList = document.querySelector('#user-list');
 function run(){
     db.collection("Residents").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            //console.log(doc.id, " => ", doc.data());
             renderAccount(doc);
         });
     });
@@ -44,8 +42,6 @@ function run(){
 function query(){
     db.collection("Residents").where('major', '==', 'CSE').get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            //console.log(doc.id, " => ", doc.data());
             renderAccount(doc);
         });
     });
