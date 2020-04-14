@@ -1,6 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+        <script src = "./read.js"></script>
         <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="read_data.html">Display Database</a></li>
@@ -11,8 +12,20 @@
     <body>
 
         <h3>ACTIVE USER</h3>
-        <button type="button" onclick=run();>Print All Residents!</button>
-        <button type="button" onclick=query_all();>Print All CSE Majors!</button>
+        <button type="button" onclick=query_all();>Print All Residents!</button>
+        <button type="button" onclick=run();>Print All CSE Majors!</button>
+        <form id="query_id" method="post" action="javascript:query_id()">
+            <fieldset>
+                <legend> Get data by ID </legend>
+
+                <label> Resident ID </label> </br>
+                <input type="text" name="id" maxlength="10" placeholder="1001000000" >
+                </br>
+
+                <input type="submit" name="submit">
+
+            </fieldset>
+        </form>
         <table id="user-list" border="2" cellpadding="10" style="border-collapse:collapse;">
             <thead>
                 <th>ID</th>
@@ -50,7 +63,6 @@
         firebase.initializeApp(firebaseConfig);
         var db = firebase.firestore();
         </script>
-        <script src = "./read.js"></script>
 
     </body>
 </html>

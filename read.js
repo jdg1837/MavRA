@@ -37,7 +37,7 @@ function delete_table(){
   }
 }
 
-function run(){
+function query_all(){
     delete_table();
     db.collection("Residents").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
@@ -46,7 +46,16 @@ function run(){
     });
 }
 
-function query_all(){
+function query_id(){
+    var form = document.getElementById("query_id");
+    var id = form.elements.namedItem("id").value;
+    console.log(id);
+    db.collection("Residents").doc(id).get().then(function(doc){
+        renderAccount(doc);});
+    form.reset();
+}
+
+function run(){
     delete_table();
     db.collection("Residents").where('major', '==', 'Computer Science').get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
