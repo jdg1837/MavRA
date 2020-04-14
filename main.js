@@ -14,17 +14,54 @@ function add(){
         first: fname,
         last: lname,
         major: major,
-        room:{
-            number: room_number,
-            side: room_letter
-        },
+        room_number: room_number,
+        room_letter: room_letter,
         year: year
     })
+
+    form.reset();
 }
   
 function del(){
     var form = document.getElementById("remove");
     var id = form.elements.namedItem("id").value;
-    window.alert(id);
-    db.collection("Residents").doc(id).delete()
+    db.collection("Residents").doc(id).delete();
+    form.reset();
+}
+
+function query_id(){
+    var form = document.getElementById("query_id");
+    var id = form.elements.namedItem("id").value;
+    var resident = db.collection("Residents").doc(id).get();
+    console.log(resident);
+    form.reset();
+}
+
+function query(){
+    var query = db.collection("Residents")
+    var form = document.getElementById("query");
+
+    var fname = form.elements.namedItem("fname").value;
+    if(fname != ""){
+        console.log(fname);
+        db.collection("Residents").where("first", "==", "Ada").get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+    }
+    var lname = form.elements.namedItem("lname").value;
+    var major = form.elements.namedItem("major").value;
+    var year = form.elements.namedItem("year").value;
+    var room_number = form.elements.namedItem("room_number").value;
+    var room_letter = form.elements.namedItem("room_letter").value;
+
+
+
+    form.reset();
 }

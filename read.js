@@ -28,45 +28,6 @@ const UserList = document.querySelector('#user-list');
 
             }
 
-
-
-
-
-
-
-
-/*
-// create element & render cafe
-function renderUsers(doc){
-    let li = document.createElement('li');
-    let first = document.createElement('span');
-    let last = document.createElement('span');
-    let major = document.createElement('span');
-    let number = document.createElement('span');
-
-    li.setAttribute('data-id', doc.id);
-    first.textContent = doc.data().first;
-    last.textContent = doc.data().last;
-    major.textContent = doc.data().major;
-    number.textContent = doc.data().number;
-
-    li.appendChild(first);
-    li.appendChild(last);
-    li.appendChild(major);
-    li.appendChild(number);
-
-    UserList.appendChild(li);
-}
-
-
-// getting data
-db.collection('Residents').get().then(snapshot => {
-    snapshot.docs.forEach(doc => {
-        renderUsers(doc);
-    });
-});
-*/
-
 db.collection("Residents").get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
