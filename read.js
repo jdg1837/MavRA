@@ -2,6 +2,7 @@ const UserList = document.querySelector('#user-list');
 
             function renderAccount(doc){
                 let tr = document.createElement('tr');
+                let id = document.createElement('td');
                 let first = document.createElement('td');
                 let last = document.createElement('td');
                 let major = document.createElement('td');
@@ -10,6 +11,7 @@ const UserList = document.querySelector('#user-list');
                 let room_letter = document.createElement('td');
 
                 tr.setAttribute('data-id', doc.id);
+                id.textContent = doc.id;
                 first.textContent = doc.data().first;
                 last.textContent = doc.data().last;
                 major.textContent = doc.data().major;
@@ -17,6 +19,7 @@ const UserList = document.querySelector('#user-list');
                 room_number.textContent = doc.data().room_number;
                 room_letter.textContent = doc.data().room_letter;
 
+                tr.appendChild(id);
                 tr.appendChild(first);
                 tr.appendChild(last);
                 tr.appendChild(major);
