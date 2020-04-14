@@ -47,11 +47,15 @@ function query_all(){
 }
 
 function query_id(){
+    delete_table();
     var form = document.getElementById("query_id");
     var id = form.elements.namedItem("id").value;
     console.log(id);
-    db.collection("Residents").doc(id).get().then(function(doc){
-        renderAccount(doc);});
+    db.collection("Residents").where(firebase.firestore.FieldPath.documentId(), '==', id).get().then(function(querySnapshot){
+        querySnapshot.forEach(function(doc) {
+        renderAccount(doc);
+        });
+    });
     form.reset();
 }
 
