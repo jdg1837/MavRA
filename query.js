@@ -34,7 +34,7 @@ function query(){
         x=x.filter(value => -1 !== set4.indexOf(value));
         x=x.filter(value => -1 !== set5.indexOf(value));
         x=x.filter(value => -1 !== set6.indexOf(value));
-        print_set(x);
+        setTimeout(print_set(x), 1000);
     }, 2000);
 
     form.reset();
