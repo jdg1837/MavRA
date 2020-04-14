@@ -12,14 +12,22 @@ ID: 1001401837 -->
         </ul>
     </head>
     <body>
-        <h1> Add a Resident </h1>
-        <form id="add" method="post" action="javascript:add()">
+        <h1> Search Residents </h1>
+        <form id="query_id" method="post" action="javascript:query_id()">
             <fieldset>
-                <legend> Create Resident </legend>
+                <legend> Get data by ID </legend>
 
                 <label> Resident ID </label> </br>
                 <input type="text" name="id" maxlength="10" placeholder="1001000000" >
                 </br>
+
+                <input type="submit" name="submit">
+
+            </fieldset>
+        </form>
+        <form id="query" method="post" action="javascript:query()">
+            <fieldset>
+                <legend> Search Residents </legend>
 
                 <label> First Name </label> </br>
                 <input type="text" name="fname" placeholder="Enter Resident's first name" >
@@ -53,20 +61,6 @@ ID: 1001401837 -->
 
                 <input type="submit" name="submit">
 
-            </fieldset>
-        </form>
-
-
-        <h1> Remove a Resident </h1>
-        <form id="remove" method="post" action="javascript:del()">
-            <fieldset>
-                <legend> Remove Resident </legend>
-
-                <label> Resident ID </label> </br>
-                <input type="text" name="id" maxlength="10" placeholder="1001000000" >
-                </br>
-
-                <input type="submit" name="submit">
             </fieldset>
         </form>
 
