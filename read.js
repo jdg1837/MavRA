@@ -31,7 +31,15 @@ const UserList = document.querySelector('#user-list');
 
             }
 
+function delete_table(){
+   var table = document.getElementById("user-list");
+   while(table.rows.length > 0) {
+    table.deleteRow(0);
+  }
+}
 function run(){
+
+    delete_table();
     db.collection("Residents").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             renderAccount(doc);
@@ -40,7 +48,8 @@ function run(){
 }
 
 function query(){
-    db.collection("Residents").where('major', '==', 'CSE').get().then(function(querySnapshot) {
+    delete_table();
+    db.collection("Residents").where('major', '==', 'Computer Science').get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             renderAccount(doc);
         });
