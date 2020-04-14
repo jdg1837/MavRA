@@ -33,8 +33,8 @@ const UserList = document.querySelector('#user-list');
 
 function delete_table(){
    var table = document.getElementById("user-list");
-   while(table.rows.length > 0) {
-    table.deleteRow(0);
+   while(table.rows.length > 1) {
+    table.deleteRow(1);
   }
 }
 function run(){
