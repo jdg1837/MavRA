@@ -107,6 +107,7 @@ function single_query(collection,form,param){
     return ids;
 }
 
+
 function query(){
     var collection = db.collection("Residents");
     var form = document.getElementById("query");
@@ -125,34 +126,31 @@ function query(){
         x=x.filter(value => -1 !== set5.indexOf(value));
         x=x.filter(value => -1 !== set6.indexOf(value));
         setTimeout(print_set(x), 1000);
+        query_id_test(x);
     }, 2000);
-
+    
     form.reset();
 }
 
-// Trying to assign golbal variable that saves the item in the set, but not working
-var test;
 function print_set(set){
     for (item in set){
         console.log(set[item]);  
         test = set[item]; 
     }      
 }
-
-console.log(test);  
-
+ 
 
 
-//This function should print out the query based on the saved "test" variable, but not working
-function query_id_test(){
+
+//Working to print out one, but when its multiple users they dont print. We have to find out how to replace  == with array-contains
+function query_id_test(set){
     delete_table();
-    //var form = document.getElementById("query_id");
-    //var id = form.elements.namedItem("id").value;
-    //console.log(id);
-    db.collection("Residents").where(firebase.firestore.FieldPath.documentId(), '==', test).get().then(function(querySnapshot){
+    for (item in set){
+        var test = set[item]; 
+    }
+    db.collection("Residents").where(firebase.firestore.FieldPath.documentId(), "==", test).get().then(function(querySnapshot){
         querySnapshot.forEach(function(doc) {
         renderAccount(doc);
         });
     });
-    form.reset();
 }
