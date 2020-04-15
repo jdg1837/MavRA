@@ -25,6 +25,51 @@
 
             </fieldset>
         </form>
+        
+        <!---------------------------------Start test Query Table here--------------------------------------------->
+
+        <form id="query" method="post" action="javascript:query()">
+            <fieldset>
+                <legend> Search Residents </legend>
+
+                <label> First Name </label> </br>
+                <input type="text" name="first" placeholder="Enter Resident's first name" >
+                </br>
+
+                <label> Last Name </label> </br>
+                <input type="text" name="last" placeholder="Enter Resident's last name" >
+                </br>
+
+                <label> Major </label> </br>
+                <input type="text" name="major" placeholder="Enter major" >
+                </br>
+
+                <label> Year </label> </br>
+                <select name="year" size="3">
+                <option value="">Any</option>
+                <option value="Freshman">Freshman</option>
+                <option value="Sophomore">Sophomore</option>
+                <option value="Junior">Junior</option>
+                <option value="Senior">Senior</option>
+                <option value="Masters">Masters</option>
+                </select>
+                </br>
+
+                <label> Room Number </label> </br>
+                <input type="number" name="room_number" maxlength="3" placeholder=000 >
+                </br>
+
+                <label> Room Letter </label> </br>
+                <input type="text" name="room_letter" maxlength="1" placeholder="A" >
+                </br>
+
+                <input type="submit" name="submit">
+
+            </fieldset>
+        </form>
+
+        <!---------------------------------End test Query Table here--------------------------------------------->
+
         <table id="user-list" border="2" cellpadding="10" style="border-collapse:collapse;">
             <thead>
                 <th>ID</th>
