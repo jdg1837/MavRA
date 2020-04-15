@@ -62,31 +62,9 @@ function query_id(){
     });
     form.reset();
 }
-//This was the test function to query all Computer Science Majors
-function run(){
-    delete_table();
-    db.collection("Residents").where('major', '==', 'Computer Science').get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            renderAccount(doc);
-        });
-    });
-}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Testing out new query code here */
+/* Query Form code starts here */
 
 function single_query(collection,form,param){
     var value = form.elements.namedItem(param).value;
@@ -138,8 +116,6 @@ function print_set(set){
         test = set[item]; 
     }      
 }
- 
-
 
 
 //Prints out queries
