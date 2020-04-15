@@ -142,15 +142,16 @@ function print_set(set){
 
 
 
-//Working to print out one, but when its multiple users they dont print. We have to find out how to replace  == with array-contains
+//Prints out queries
 function query_id_test(set){
     delete_table();
     for (item in set){
         var test = set[item]; 
-    }
-    db.collection("Residents").where(firebase.firestore.FieldPath.documentId(), "==", test).get().then(function(querySnapshot){
-        querySnapshot.forEach(function(doc) {
-        renderAccount(doc);
+        db.collection("Residents").where(firebase.firestore.FieldPath.documentId(), "==", test).get().then(function(querySnapshot){
+            querySnapshot.forEach(function(doc) {
+            renderAccount(doc);
+            });
         });
-    });
+    }
+    
 }
