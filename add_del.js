@@ -2,8 +2,8 @@ function add(){
     var form = document.getElementById("add");
     // Get input values from each of the form elements
     var id = form.elements.namedItem("id").value;
-    var fname = form.elements.namedItem("first").value;
-    var lname = form.elements.namedItem("last").value;
+    var first = form.elements.namedItem("first").value;
+    var last = form.elements.namedItem("last").value;
     var major = form.elements.namedItem("major").value;
     var year = form.elements.namedItem("year").value;
     var room_number = form.elements.namedItem("room_number").value;
