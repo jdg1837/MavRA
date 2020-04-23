@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Upload Files</title>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="read_data.html">Search Database</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Upload_files.html">Upload Files</a></li>
+        </ul>
+    </head>
+    <body>
+        <h1> Add a File </h1>
+        <progress value = "0" max = "100" id = "uploader">0%</progress>
+        <input type="file" value="upload" id="fileButton" />
+        
+
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+        <!-- If you enabled Analytics in your project, add the Firebase SDKfor Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
+
+        <script>
+        var firebaseConfig = {
+        apiKey: "AIzaSyDZNTsyONAQlE0c_EtoCcyYyZyRWpz6isI",
+        authDomain: "mavra-2355b.firebaseapp.com",
+        databaseURL: "https://mavra-2355b.firebaseio.com",
+        projectId: "mavra-2355b",
+        storageBucket: "mavra-2355b.appspot.com",
+        messagingSenderId: "553724586959",
+        appId: "1:553724586959:web:44ba186b79879703a780ba",
+        measurementId: "G-05JK85SPT1"
+    };
+        // Initialize Firebase/Firestore
+        firebase.initializeApp(firebaseConfig);
+        //var db = firebase.firestore();
+
+        //Get elements
+        var uploader = document.getElementById('uploader');
+        var fileButton = document.getElementById('fileButton');
+        
+        //Listen for file seletion
+        fileButton.addEventListener('change',function(e){
+            //Get File
+        var file = e.target.files[0];
+
+        //Create Storage ref
+        var storageRef = firebase.storage().ref('RA_Files/' + file.name);
+        //Upload File
+        var task = storageRef.put(file);
+        //Update Progress Bar
+        task.on('state_changed',
+        function progress(snapshot) {
+            var percentage = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+            uploader.value = percentage;
+        },
+
+        function error(err) {
+
+        },
+
+        function complete(){
+            window.alert("Sucessfully Uploaded!");
+
+        }
+        );
+    });
+        </script>
+        <script src = "./add_del.js"></script>
+    </body>
+</html>
