@@ -13,6 +13,17 @@
         <h1> Add a File </h1>
         <progress value = "0" max = "100" id = "uploader">0%</progress>
         <input type="file" value="upload" id="fileButton" />
+        <p>
+        <a href="https://firebasestorage.googleapis.com/v0/b/mavra-2355b.appspot.com/o/RA_Files%2FRA%20Agreement%201819%20RH.pdf?alt=media&token=301c620b-108f-4f9d-b77f-0da1e8998b24">Residence Hall Resident Assistant Agreement</a>
+        <br>
+        <a href="https://firebasestorage.googleapis.com/v0/b/mavra-2355b.appspot.com/o/RA_Files%2Fra%20agreement%20apartments%201617%20-%20final.pdf?alt=media&token=7aa813eb-f9f7-4411-821a-b68b07d7248b">Apartment Resident Assistant Agreement</a>
+        <br>
+        <a href="https://firebasestorage.googleapis.com/v0/b/mavra-2355b.appspot.com/o/RA_Files%2FOfficial%20Occasion%20-%20Template.pdf?alt=media&token=de533989-e475-4ecd-8f40-a08fe3c3fa27">Official Occasion Expense Form</a>
+        <br>
+        <a href="https://firebasestorage.googleapis.com/v0/b/mavra-2355b.appspot.com/o/RA_Files%2FCash%20Spending%20Receipt.pdf?alt=media&token=a18d23eb-180c-4f62-8904-d78ea01a6f63">Cash Spending Receipt</a>
+        </p>
+        
+
         
 
         <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
@@ -65,11 +76,34 @@
         },
 
         function complete(){
-            window.alert("Sucessfully Uploaded!");
 
         }
         );
     });
+
+
+
+
+    // DOWNLOAD FILE????
+    // Create a reference to the file we want to download
+    var starsRef = storageRef.child('RA_Files/RA Agreement 1819 RH.pdf');
+
+    // Get the download URL
+    starsRef.getDownloadURL().then(function(url) {
+    // Insert url into an <img> tag to "download"
+    }).catch(function(error) {
+    
+    });
+
+
+
+
+
+
+
+
+
+
         </script>
         <script src = "./add_del.js"></script>
     </body>
